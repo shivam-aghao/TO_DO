@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks & Todo Manager — Study OS</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<div class="app-container">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="dashboard.html" class="brand-logo">
+                <div class="brand-icon">◈</div>
+                <span class="brand-name">STUDY OS</span>
+                <span class="brand-badge">2.0</span>
+            </a>
+        </div>
+        <div class="sidebar-nav">
+            <div class="nav-category">Core Ops</div>
+            <a href="dashboard.html" class="nav-link"><span class="nav-icon">◉</span> <span class="nav-label">Dashboard</span></a>
+            <a href="tasks.html" class="nav-link active"><span class="nav-icon">▣</span> <span class="nav-label">Tasks</span></a>
+            <a href="courses.html" class="nav-link"><span class="nav-icon">📚</span> <span class="nav-label">Courses</span></a>
+            <a href="study.html" class="nav-link"><span class="nav-icon">◷</span> <span class="nav-label">Study</span></a>
+            <a href="routine.html" class="nav-link"><span class="nav-icon">◫</span> <span class="nav-label">Routine</span></a>
+
+            <div class="nav-category">Wellbeing & Habits</div>
+            <a href="habits.html" class="nav-link"><span class="nav-icon">♡</span> <span class="nav-label">Habits</span></a>
+            <a href="sleep.html" class="nav-link"><span class="nav-icon">◒</span> <span class="nav-label">Sleep</span></a>
+            <a href="gym.html" class="nav-link"><span class="nav-icon">⚡</span> <span class="nav-label">Gym</span></a>
+
+            <div class="nav-category">Intelligence</div>
+            <a href="goals.html" class="nav-link"><span class="nav-icon">◈</span> <span class="nav-label">Goals</span></a>
+            <a href="analytics.html" class="nav-link"><span class="nav-icon">◇</span> <span class="nav-label">Analytics</span></a>
+        </div>
+        <div class="sidebar-footer">
+            <a href="settings.html" class="nav-link"><span class="nav-icon">⚙</span> <span class="nav-label">Settings</span></a>
+            <div class="user-mini-card">
+                <div class="user-avatar">S</div>
+                <div class="user-info">
+                    <div class="user-name">Shiva</div>
+                    <div class="user-status">Command Center</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-header">
+            <div>
+                <h1>Advanced Task Manager</h1>
+                <p style="font-size: 0.82rem; color: var(--text-secondary);">Organize assignments, syllabus drills, subtasks, and deadlines</p>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-primary" onclick="window.openQuickModal('task')">
+                    ＋ Add Task
+                </button>
+            </div>
+        </header>
+
+        <div class="page-body">
+            <!-- Filter & Search Toolbar -->
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; margin-bottom: 24px;">
+                <div style="display: flex; gap: 8px; overflow-x: auto;">
+                    <button class="btn btn-secondary task-filter-btn active" data-filter="all">All Tasks</button>
+                    <button class="btn btn-secondary task-filter-btn" data-filter="Not Started">Not Started</button>
+                    <button class="btn btn-secondary task-filter-btn" data-filter="In Progress">In Progress</button>
+                    <button class="btn btn-secondary task-filter-btn" data-filter="Completed">Completed</button>
+                </div>
+
+                <div style="width: 280px;">
+                    <input type="text" id="tasks-search-input" class="form-input" placeholder="🔍 Search tasks or tags..." />
+                </div>
+            </div>
+
+            <!-- Task List Container (Drag & Drop enabled) -->
+            <div id="tasks-list-container">
+                <!-- Populated dynamically by tasks.js -->
+            </div>
+        </div>
+    </main>
+</div>
+
+<nav class="mobile-bottom-nav">
+    <a href="dashboard.html" class="mobile-nav-item"><span class="icon">◉</span><span>Home</span></a>
+    <a href="tasks.html" class="mobile-nav-item active"><span class="icon">▣</span><span>Tasks</span></a>
+    <a href="study.html" class="mobile-nav-item"><span class="icon">◷</span><span>Study</span></a>
+    <a href="routine.html" class="mobile-nav-item"><span class="icon">◫</span><span>Routine</span></a>
+    <a href="analytics.html" class="mobile-nav-item"><span class="icon">◇</span><span>Stats</span></a>
+</nav>
+
+<script type="module" src="js/tasks.js"></script>
+</body>
+</html>
+

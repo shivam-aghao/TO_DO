@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings — Study OS</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<div class="app-container">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="dashboard.html" class="brand-logo">
+                <div class="brand-icon">◈</div>
+                <span class="brand-name">STUDY OS</span>
+                <span class="brand-badge">2.0</span>
+            </a>
+        </div>
+        <div class="sidebar-nav">
+            <div class="nav-category">Core Ops</div>
+            <a href="dashboard.html" class="nav-link"><span class="nav-icon">◉</span> <span class="nav-label">Dashboard</span></a>
+            <a href="tasks.html" class="nav-link"><span class="nav-icon">▣</span> <span class="nav-label">Tasks</span></a>
+            <a href="courses.html" class="nav-link"><span class="nav-icon">📚</span> <span class="nav-label">Courses</span></a>
+            <a href="study.html" class="nav-link"><span class="nav-icon">◷</span> <span class="nav-label">Study</span></a>
+            <a href="routine.html" class="nav-link"><span class="nav-icon">◫</span> <span class="nav-label">Routine</span></a>
+
+            <div class="nav-category">Wellbeing & Habits</div>
+            <a href="habits.html" class="nav-link"><span class="nav-icon">♡</span> <span class="nav-label">Habits</span></a>
+            <a href="sleep.html" class="nav-link"><span class="nav-icon">◒</span> <span class="nav-label">Sleep</span></a>
+            <a href="gym.html" class="nav-link"><span class="nav-icon">⚡</span> <span class="nav-label">Gym</span></a>
+
+            <div class="nav-category">Intelligence</div>
+            <a href="goals.html" class="nav-link"><span class="nav-icon">◈</span> <span class="nav-label">Goals</span></a>
+            <a href="analytics.html" class="nav-link"><span class="nav-icon">◇</span> <span class="nav-label">Analytics</span></a>
+        </div>
+        <div class="sidebar-footer">
+            <a href="settings.html" class="nav-link active"><span class="nav-icon">⚙</span> <span class="nav-label">Settings</span></a>
+            <div class="user-mini-card">
+                <div class="user-avatar">S</div>
+                <div class="user-info">
+                    <div class="user-name">Shiva</div>
+                    <div class="user-status">Command Center</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-header">
+            <div>
+                <h1>Settings & System Configuration</h1>
+                <p style="font-size: 0.82rem; color: var(--text-secondary);">Manage profile attributes, daily targets, and Supabase integration</p>
+            </div>
+            <div class="header-actions">
+                <span class="badge badge-accent">System Active</span>
+            </div>
+        </header>
+
+        <div class="page-body">
+            <div style="max-width: 680px; display: flex; flex-direction: column; gap: 24px;">
+                <!-- Profile Settings -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">👤 Student Profile</div>
+                    </div>
+                    <form id="settings-profile-form">
+                        <div class="form-group">
+                            <label class="form-label">Display Name</label>
+                            <input type="text" id="set-fullname" class="form-input" value="Shiva" required />
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                            <div class="form-group">
+                                <label class="form-label">Daily Study Goal (Hours)</label>
+                                <input type="number" id="set-studygoal" class="form-input" step="0.5" value="6.0" />
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Scheduled Wake Time</label>
+                                <input type="time" id="set-waketime" class="form-input" value="06:30" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Scheduled Sleep Time</label>
+                            <input type="time" id="set-sleeptime" class="form-input" value="23:00" />
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="margin-top: 10px;">
+                            Save Changes
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Database Status & Supabase Connection -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">🗄 Supabase Database Integration</div>
+                        <span id="supabase-status-badge" class="badge badge-accent">Checking...</span>
+                    </div>
+                    <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 14px;">
+                        Study OS operates on <b>Supabase PostgreSQL</b> with Row Level Security (RLS). You can configure your credentials in <code>backend/.env</code>:
+                    </p>
+                    <div style="background: var(--bg-primary); padding: 12px 16px; border-radius: var(--radius-md); border: 1px solid var(--border); font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-primary); margin-bottom: 14px;">
+                        SUPABASE_URL=https://your-project.supabase.co<br/>
+                        SUPABASE_KEY=eyJhbGciOi...<br/>
+                        SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOi...
+                    </div>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">
+                        To apply the tables, execute the schema located at <code>backend/database/schema.sql</code> in your Supabase SQL editor.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<nav class="mobile-bottom-nav">
+    <a href="dashboard.html" class="mobile-nav-item"><span class="icon">◉</span><span>Home</span></a>
+    <a href="tasks.html" class="mobile-nav-item"><span class="icon">▣</span><span>Tasks</span></a>
+    <a href="study.html" class="mobile-nav-item"><span class="icon">◷</span><span>Study</span></a>
+    <a href="routine.html" class="mobile-nav-item"><span class="icon">◫</span><span>Routine</span></a>
+    <a href="analytics.html" class="mobile-nav-item"><span class="icon">◇</span><span>Stats</span></a>
+</nav>
+
+<script type="module">
+    import { api } from './js/api.js';
+    import { auth } from './js/auth.js';
+    import { showToast } from './js/components.js';
+
+    window.auth = auth;
+
+    async function loadSettings() {
+        try {
+            const health = await api.get('/api/health');
+            const badge = document.getElementById('supabase-status-badge');
+            if (badge) {
+                if (health.supabase_connected) {
+                    badge.className = 'badge badge-completed';
+                    badge.textContent = 'Connected (Supabase Cloud)';
+                } else {
+                    badge.className = 'badge badge-accent';
+                    badge.textContent = 'Active (Local Telemetry Engine)';
+                }
+            }
+
+            const profile = await api.get('/api/auth/profile');
+            if (profile) {
+                if (profile.full_name) document.getElementById('set-fullname').value = profile.full_name;
+                if (profile.study_goal_hours) document.getElementById('set-studygoal').value = profile.study_goal_hours;
+                if (profile.wake_time) document.getElementById('set-waketime').value = profile.wake_time.substring(0, 5);
+                if (profile.sleep_time) document.getElementById('set-sleeptime').value = profile.sleep_time.substring(0, 5);
+            }
+        } catch (err) {
+            console.error('Settings load error:', err);
+        }
+    }
+
+    document.getElementById('settings-profile-form').onsubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const full_name = document.getElementById('set-fullname').value;
+            const study_goal_hours = parseFloat(document.getElementById('set-studygoal').value);
+            const wake_time = document.getElementById('set-waketime').value + ':00';
+            const sleep_time = document.getElementById('set-sleeptime').value + ':00';
+
+            await api.put('/api/auth/profile', {
+                full_name,
+                study_goal_hours,
+                wake_time,
+                sleep_time
+            });
+            showToast('Profile updated successfully', 'success');
+        } catch (err) {
+            showToast('Error saving profile: ' + err.message, 'error');
+        }
+    };
+
+    loadSettings();
+</script>
+</body>
+</html>
+

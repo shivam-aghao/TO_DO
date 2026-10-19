@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Tracker & Consistency — Study OS</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<div class="app-container">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="dashboard.html" class="brand-logo">
+                <div class="brand-icon">◈</div>
+                <span class="brand-name">STUDY OS</span>
+                <span class="brand-badge">2.0</span>
+            </a>
+        </div>
+        <div class="sidebar-nav">
+            <div class="nav-category">Core Ops</div>
+            <a href="dashboard.html" class="nav-link"><span class="nav-icon">◉</span> <span class="nav-label">Dashboard</span></a>
+            <a href="tasks.html" class="nav-link"><span class="nav-icon">▣</span> <span class="nav-label">Tasks</span></a>
+            <a href="courses.html" class="nav-link"><span class="nav-icon">📚</span> <span class="nav-label">Courses</span></a>
+            <a href="study.html" class="nav-link"><span class="nav-icon">◷</span> <span class="nav-label">Study</span></a>
+            <a href="routine.html" class="nav-link"><span class="nav-icon">◫</span> <span class="nav-label">Routine</span></a>
+
+            <div class="nav-category">Wellbeing & Habits</div>
+            <a href="habits.html" class="nav-link"><span class="nav-icon">♡</span> <span class="nav-label">Habits</span></a>
+            <a href="sleep.html" class="nav-link active"><span class="nav-icon">◒</span> <span class="nav-label">Sleep</span></a>
+            <a href="gym.html" class="nav-link"><span class="nav-icon">⚡</span> <span class="nav-label">Gym</span></a>
+
+            <div class="nav-category">Intelligence</div>
+            <a href="goals.html" class="nav-link"><span class="nav-icon">◈</span> <span class="nav-label">Goals</span></a>
+            <a href="analytics.html" class="nav-link"><span class="nav-icon">◇</span> <span class="nav-label">Analytics</span></a>
+        </div>
+        <div class="sidebar-footer">
+            <a href="settings.html" class="nav-link"><span class="nav-icon">⚙</span> <span class="nav-label">Settings</span></a>
+            <div class="user-mini-card">
+                <div class="user-avatar">S</div>
+                <div class="user-info">
+                    <div class="user-name">Shiva</div>
+                    <div class="user-status">Command Center</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-header">
+            <div>
+                <h1>Sleep Tracker & Circadian Rhythm</h1>
+                <p style="font-size: 0.82rem; color: var(--text-secondary);">Rest analysis and schedule consistency observations</p>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-primary" onclick="window.openQuickModal('sleep')">
+                    ＋ Log Sleep
+                </button>
+            </div>
+        </header>
+
+        <div class="page-body">
+            <!-- Sleep Stats Row -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 24px;">
+                <div class="card">
+                    <div class="kpi-label">Schedule Consistency</div>
+                    <div class="kpi-value" id="sleep-consistency-pct" style="color: var(--accent);">88%</div>
+                    <div class="kpi-meta" id="sleep-consistency-note">Calculating last 7 days...</div>
+                </div>
+
+                <div class="card">
+                    <div class="kpi-label">Last Night Duration</div>
+                    <div class="kpi-value" id="sleep-latest-duration">7.7h</div>
+                    <div class="kpi-meta">Target: 8.0h baseline</div>
+                </div>
+
+                <div class="card">
+                    <div class="kpi-label">Subjective Quality</div>
+                    <div class="kpi-value" id="sleep-latest-quality" style="color: var(--warning); font-size: 1.4rem;">★★★★☆</div>
+                    <div class="kpi-meta">Self-reported rested state</div>
+                </div>
+            </div>
+
+            <!-- Dark Sleep Chart -->
+            <div class="card" style="margin-bottom: 24px;">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title">🌙 Sleep Duration (Last 14 Days)</div>
+                        <div class="card-subtitle">Bar indicators against 8h target baseline</div>
+                    </div>
+                </div>
+                <div style="height: 280px; position: relative;">
+                    <canvas id="sleep-duration-chart"></canvas>
+                </div>
+            </div>
+
+            <div class="card" style="background: var(--bg-elevated); border-color: var(--border);">
+                <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">
+                    🛡 Responsible Telemetry Notice
+                </div>
+                <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.5;">
+                    Study OS tracks sleep habits strictly for academic routine optimization and recovery planning. These observations are productivity metrics and do not constitute medical advice or diagnosis.
+                </p>
+            </div>
+        </div>
+    </main>
+</div>
+
+<nav class="mobile-bottom-nav">
+    <a href="dashboard.html" class="mobile-nav-item"><span class="icon">◉</span><span>Home</span></a>
+    <a href="tasks.html" class="mobile-nav-item"><span class="icon">▣</span><span>Tasks</span></a>
+    <a href="study.html" class="mobile-nav-item"><span class="icon">◷</span><span>Study</span></a>
+    <a href="routine.html" class="mobile-nav-item"><span class="icon">◫</span><span>Routine</span></a>
+    <a href="analytics.html" class="mobile-nav-item"><span class="icon">◇</span><span>Stats</span></a>
+</nav>
+
+<script type="module" src="js/sleep.js"></script>
+</body>
+</html>
+

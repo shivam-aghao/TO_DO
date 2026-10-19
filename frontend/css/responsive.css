@@ -1,0 +1,136 @@
+/* Responsive Layout & Mobile Navigation */
+
+/* Tablet & Smaller Desktops (<= 1100px) */
+@media (max-width: 1100px) {
+    .kpi-row {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Tablets (<= 850px) */
+@media (max-width: 850px) {
+    :root {
+        --sidebar-width: 72px;
+    }
+
+    .sidebar {
+        width: var(--sidebar-width);
+    }
+
+    .brand-name, .brand-badge, .nav-category, .nav-label, .user-info, .sidebar-footer .btn span {
+        display: none !important;
+    }
+
+    .sidebar-header {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .nav-link {
+        justify-content: center;
+        padding: 12px 0;
+    }
+
+    .nav-link .nav-icon {
+        margin: 0;
+        font-size: 1.3rem;
+    }
+
+    .main-content {
+        margin-left: var(--sidebar-width);
+    }
+
+    .page-body {
+        padding: 20px;
+    }
+
+    .kpi-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile Devices (<= 640px) */
+@media (max-width: 640px) {
+    .sidebar {
+        display: none; /* Replaced by bottom navigation */
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding-bottom: 74px; /* Space for bottom nav */
+    }
+
+    .top-header {
+        padding: 0 16px;
+    }
+
+    .page-body {
+        padding: 16px;
+    }
+
+    .kpi-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .quick-actions-bar {
+        gap: 8px;
+    }
+
+    .modal-card {
+        padding: 20px;
+        width: 92%;
+    }
+
+    /* Mobile Bottom Navigation Bar */
+    .mobile-bottom-nav {
+        display: flex !important;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 64px;
+        background: rgba(10, 10, 10, 0.96);
+        backdrop-filter: blur(14px);
+        border-top: 1px solid var(--border);
+        align-items: center;
+        justify-content: space-around;
+        z-index: 999;
+        padding: 0 8px;
+    }
+
+    .mobile-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.65rem;
+        font-weight: 600;
+        flex: 1;
+        height: 100%;
+        transition: var(--transition);
+    }
+
+    .mobile-nav-item.active {
+        color: var(--accent);
+    }
+
+    .mobile-nav-item .icon {
+        font-size: 1.2rem;
+    }
+}
+
+/* Hide mobile bottom nav on desktop */
+@media (min-width: 641px) {
+    .mobile-bottom-nav {
+        display: none;
+    }
+}
+
